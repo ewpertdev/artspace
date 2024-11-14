@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.firartspace"
+    namespace = "com.example.artspace_mohdfirdausbinabdullah"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.firartspace"
+        applicationId = "com.example.artspace_mohdfirdausbinabdullah"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
