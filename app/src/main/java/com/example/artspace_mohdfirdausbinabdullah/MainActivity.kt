@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.artspace_mohdfirdausbinabdullah.ui.theme.FirArtSpaceTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 /*Esto es una aplicación que muestra una galería de personajes de la serie Hannibal, Breaking Bad y The Walking Dead
 
@@ -58,20 +59,12 @@ data class Artwork(
 // modifier: Modifier = Modifier es un parámetro opcional que se le pasa al composable para que se pueda usar en el resto del código,
 // es opcional porque se le puede pasar un modifier para darles estilo
 fun ArtSpaceApp(modifier: Modifier = Modifier) {
-    // Lista de personajes favoritos
-    // Cada personaje tiene un id de imagen, un nombre, un actor y un año y se mete en listOf para que se pueda usar en el resto del código
-    // listOf es una lista de objetos Artwork
-    val artworkList = listOf(
-        Artwork(R.drawable.hannibal_lecter, "Hannibal Lecter", "Mads Mikkelsen", 2013),
-        Artwork(R.drawable.gus_fring, "Breaking Bad", "Giancarlo Esposito", 2008),
-        Artwork(R.drawable.daryl_dixon, "The Walking Dead", "Norman Reedus", 2010)
-    )
+    // Inicializamos el ViewModel
+    val viewModel: ArtSpaceViewModel = viewModel()
     
-    // Control del índice actual usando estado mutable para que se pueda cambiar cuando se pulse el botón
-    var currentArtworkIndex by remember { mutableStateOf(0) }
-    // currentArtwork es el personaje actual que se está mostrando, se obtiene de artworkList usando el índice actual
-    // currentArtworkIndex es el índice del personaje actual en la lista, se inicializa a 0 para que se muestre el primero
-    val currentArtwork = artworkList[currentArtworkIndex]
+    // Obtenemos el estado del ViewModel
+    val currentArtworkIndex = viewModel.currentArtworkIndex.value
+    val currentArtwork = viewModel.artworkList[currentArtworkIndex]
 
     // Columna principal que contiene todos los elementos
     Column(
@@ -95,19 +88,9 @@ fun ArtSpaceApp(modifier: Modifier = Modifier) {
         // Botones de navegación con lógica circular
         NavigationButtons(
             // Lógica para ir al personaje anterior
-            onPreviousClick = {
-                // Si el índice actual es mayor que 0, se resta 1 al índice actual
-                if (currentArtworkIndex > 0) currentArtworkIndex-- 
-                // Si el índice actual es 0, se le da el valor del tamaño de la lista - 1 al índice actual
-                else currentArtworkIndex = artworkList.size - 1
-            },
+            onPreviousClick = { viewModel.previousArtwork() },
             // Lógica para ir al siguiente personaje
-            onNextClick = {
-                // Si el índice actual es menor que el tamaño de la lista - 1, se suma 1 al índice actual
-                if (currentArtworkIndex < artworkList.size - 1) currentArtworkIndex++
-                // Si el índice actual es el tamaño de la lista - 1, se le da el valor 0 al índice actual
-                else currentArtworkIndex = 0
-            }
+            onNextClick = { viewModel.nextArtwork() }
         )
     }
 }
