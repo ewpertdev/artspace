@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FirArtSpace"
+rootProject.name = "artspace_mohdfirdausbinabdullah"
 include(":app")
  

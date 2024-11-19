@@ -1,4 +1,4 @@
-package com.example.firartspace
+package com.example.artspace_mohdfirdausbinabdullah
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.firartspace.ui.theme.FirArtSpaceTheme
+import com.example.artspace_mohdfirdausbinabdullah.ui.theme.FirArtSpaceTheme
 
 /*Esto es una aplicación que muestra una galería de personajes de la serie Hannibal, Breaking Bad y The Walking Dead
 

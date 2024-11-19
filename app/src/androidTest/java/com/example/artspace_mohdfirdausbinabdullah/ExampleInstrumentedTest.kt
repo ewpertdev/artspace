@@ -1,4 +1,4 @@
-package com.example.firartspace
+package com.example.artspace_mohdfirdausbinabdullah
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

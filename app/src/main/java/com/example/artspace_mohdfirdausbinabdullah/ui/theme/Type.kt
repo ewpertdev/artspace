@@ -1,4 +1,4 @@
-package com.example.firartspace.ui.theme
+package com.example.artspace_mohdfirdausbinabdullah.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
