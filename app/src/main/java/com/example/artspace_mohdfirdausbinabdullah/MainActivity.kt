@@ -45,14 +45,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// Clase de datos que define la estructura de cada obra/personaje
-data class Artwork(
-    val imageResourceId: Int,    // ID de la imagen en recursos
-    val characterName: String,           // Nombre del personaje
-    val actorName: String,          // Nombre del actor
-    val year: Int               // Año de la serie
-)
-
 // Composable principal que organiza toda la galería
 @Composable
 // Esta función es el composable principal que organiza toda la galería, 

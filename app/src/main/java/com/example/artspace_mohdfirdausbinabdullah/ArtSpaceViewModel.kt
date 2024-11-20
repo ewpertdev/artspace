@@ -23,7 +23,6 @@ class ArtSpaceViewModel : ViewModel() {
             artworkList.size - 1
         }
     }
-
     // Función para ir al siguiente personaje
     fun nextArtwork() {
         _currentArtworkIndex.value = if (_currentArtworkIndex.value < artworkList.size - 1) {
